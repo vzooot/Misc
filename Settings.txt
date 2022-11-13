@@ -1,0 +1,50 @@
+responseAs
+
+openapi-generator-cli generate -g nodejs-express-server --additional-properties=prependFormOrBodyParameters=true \
+    -o out -i radiostations.yaml
+
+---
+
+openapi-generator-cli generate -i radiostations.yaml -g swift5 -o client --additional-properties=responseAs=Combine
+
+openapi-generator-cli generate -i radiostations.yaml -g nodejs-express-server -o server
+
+---
+
+openapi-generator-cli-7.0.0-20221012.083708-4 generate -i radiostations.yaml -g swift5 -o client --additional-properties=responseAs=Combine
+
+openapi-generator-cli-7.0.0-20221012.083708-4 generate -i pradiostations.yaml -g nodejs-express-server -o server
+
+
+mkdir -p ~/bin/openapitools
+curl https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/bin/utils/openapi-generator-cli.sh > ~/bin/openapitools/openapi-generator-cli
+chmod u+x ~/bin/openapitools/openapi-generator-cli
+export PATH=$PATH:~/bin/openapitools/
+
+
+# Execute latest released openapi-generator-cli
+openapi-generator-cli version
+
+# Execute version 4.1.0 for the current invocation, regardless of the latest released version
+OPENAPI_GENERATOR_VERSION=4.1.0 openapi-generator-cli version
+
+# Execute version 4.1.0-SNAPSHOT for the current invocation
+OPENAPI_GENERATOR_VERSION=4.1.0-SNAPSHOT openapi-generator-cli version
+
+# Execute version 4.0.2 for every invocation in the current shell session
+export OPENAPI_GENERATOR_VERSION=4.0.2
+openapi-generator-cli version # is 4.0.2
+openapi-generator-cli version # is also 4.0.2
+
+# To "install" a specific version, set the variable in .bashrc/.bash_profile
+echo "export OPENAPI_GENERATOR_VERSION=4.0.2" >> ~/.bashrc
+source ~/.bashrc
+openapi-generator-cli version # is always 4.0.2, unless any of the above overrides are done ad hoc
+
+
+java -jar modules/openapi-generator-cli/target/openapi-generator-cli.jar generate -i https://raw.githubusercontent.com/openapitools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml -g php -o /var/tmp/php_api_client
+
+
+Fira Mono for Powerline
+
+Menlo, Monaco, 'Courier New', monospace

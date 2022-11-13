@@ -1,0 +1,6 @@
+[ERROR] - (starship::print): Error parsing `format`
+[ERROR] - (starship::print): Error parsing `format`
+[ERROR] - (starship::print): Error parsing `format`
+[ERROR] - (starship::print): Error parsing `format`
+[ERROR] - (starship::config): Unable to parse the config file: invalid escape character in string: `(` at line 81 column 13
+[ERROR] - (starship::config): Unable to parse the config file: invalid escape character in string: `(` at line 81 column 13
