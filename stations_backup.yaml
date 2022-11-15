@@ -1,0 +1,72 @@
+openapi: 3.1.0
+info:
+  title: deref
+  version: 1.0.0
+servers:
+  - description: local
+    url: http://localhost:8080/
+paths:
+  /stations:
+    get:
+      description: All stations
+      responses:
+        200:
+          description: Returns all the stations
+    post:
+      parameters:
+        - in: body
+          name: station
+          description: New station
+          schema:
+            type: object
+            properties:
+              stationName:
+                type: string
+              stationURL:
+                type: string
+      responses:
+        201:
+          description: Created
+  /stations/{id}:
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+          description: The station ID.
+    description: Get a station by id
+    responses:
+      200:
+        description: Returns the requested stations
+    patch:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+          description: The station ID.
+        - in: body
+          name: station
+          description: Update station
+          schema:
+            type: object
+            properties:
+              stationName:
+                type: string
+              stationURL:
+                type: string
+      responses:
+        201:
+          description: Created
+    delete:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: string
+          description: The station ID.
+      description: Delete a station by id
+      responses:
+        200:
+          description: Returns the requested stations

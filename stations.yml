@@ -1,0 +1,116 @@
+# Info
+openapi: 3.0.2
+info:
+  title: Radio Stations SDK
+  description: Experimental description of the Radio Stations SDK.
+  version: 1.0.0
+
+# Servers
+servers:
+  - url: http://localhost:8080/
+    description: local
+
+tags:
+  - name: Radio Stations
+    description: Radio Stations APIs
+
+# Paths
+paths:
+  # Server status
+  /stations:
+    get:
+      operationId: getAllRadioStations
+      tags:
+        - Stations
+      summary: This is a summary
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: integer
+          description: The id to consume.
+      description: This is a description
+      responses:
+        "200":
+          description: This means ok
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/RadioStationsListDTO"
+  #   post:
+  #     parameters:
+  #       - in: query
+  #         name: station
+  #         description: New station
+  #         schema:
+  #           type: object
+  #           properties:
+  #             stationName:
+  #               type: string
+  #             stationURL:
+  #               type: string
+  #     responses:
+  #       201:
+  #         description: Created
+  # /stations/{id}:
+  #   get:
+  #     parameters:
+  #       - in: path
+  #         name: id
+  #         required: true
+  #         type: string
+  #         description: The station ID.
+  #   description: Get a station by id
+  #   responses:
+  #     200:
+  #       description: Returns the requested stations
+  #   patch:
+  #     parameters:
+  #       - in: path
+  #         name: id
+  #         required: true
+  #         type: string
+  #         description: The station ID.
+  #       - in: body
+  #         name: station
+  #         description: Update station
+  #         schema:
+  #           type: object
+  #           properties:
+  #             stationName:
+  #               type: string
+  #             stationURL:
+  #               type: string
+  #     responses:
+  #       201:
+  #         description: Created
+  #   delete:
+  #     parameters:
+  #       - in: path
+  #         name: id
+  #         required: true
+  #         type: string
+  #         description: The station ID.
+  #     description: Delete a station by id
+  #     responses:
+  #       200:
+  #         description: Returns the requested stations
+
+# DTOs
+components:
+  schemas:
+    # Radio Stations List DTO
+    RadioStationsListDTO:
+      description: This is the radio station model
+      required:
+        - name
+        - url
+      type: object
+      properties:
+        name:
+          description: The name of the radio station
+          type: string
+        url:
+          description: The streaming url of the radio station
+          type: string
