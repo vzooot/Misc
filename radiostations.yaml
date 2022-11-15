@@ -1,0 +1,45 @@
+openapi: 3.0.3
+info:
+  version: 0.0.1
+  title: Radio Stations Service
+  description: The Radio Stations Service
+
+# Servers
+servers:
+  - url: "http://localhost:8080"
+    description: "Production server (uses real data)."
+
+tags:
+  - name: stations
+    description: Stations APIs
+
+# Paths
+paths:
+  /stations:
+    get:
+      summary: This is a summary
+      tags:
+        - "Library"
+      description: This is a description
+      operationId: getAllRadioStations
+      responses:
+        "200":
+          description: This means ok
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/RadioStation"
+
+components:
+  schemas:
+    RadioStation:
+      description: This is the radio station model
+      type: object
+      properties:
+        name:
+          description: The name of the radio station
+          type: string
+        url:
+          description: The streaming url of the radio station
+          type: string
