@@ -1,0 +1,73 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Radio Stations SDK",
+    "description": "Experimental description of the Radio Stations SDK.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080/",
+      "description": "local"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Radio Stations",
+      "description": "Radio Stations APIs"
+    }
+  ],
+  "paths": {
+    "/stations": {
+      "get": {
+        "operationId": "getAllRadioStations",
+        "tags": ["Stations"],
+        "summary": "This is a summary",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "The id to consume."
+          }
+        ],
+        "description": "This is a description",
+        "responses": {
+          "200": {
+            "description": "This means ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/RadioStationsListDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RadioStationsListDTO": {
+        "description": "This is the radio station model",
+        "required": ["name", "url"],
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "The name of the radio station",
+            "type": "string"
+          },
+          "url": {
+            "description": "The streaming url of the radio station",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

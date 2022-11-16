@@ -1,0 +1,6 @@
+openapi-generator-cli generate -i stations.yml -g swift5 -o RadioStationsAPI --additional-properties=emodelNameSuffix=DTO,responseAs=Combine,projectName=RadioStationsAPI
+
+openapi-generator-cli generate -i stations.yml -g nodejs-express-server -o node-express-server
+
+
+java -jar openapi-generator-cli.jar generate -i stations.yml -g nodejs-express-server -o node-express-server1
